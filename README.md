@@ -9,7 +9,7 @@ npm start
 ## Building with Docker
 
 ```
-webpack
+npm run build
 sudo docker build -t react-hello-word .
 sudo docker run -p 8080:80 react-hello-word
 ```
