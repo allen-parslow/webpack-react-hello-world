@@ -29,3 +29,5 @@ rules:
     - always
   react/jsx-uses-vars: 
     - error
+  no-unused-vars:
+    - off

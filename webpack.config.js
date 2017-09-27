@@ -1,5 +1,7 @@
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const sassLintPlugin = require('sasslint-webpack-plugin');
+
 var path = require('path');
 
 module.exports = {
@@ -41,6 +43,18 @@ module.exports = {
       template: './src/index.html',
       filename: 'index.html',
       inject: 'body'
-    })
+    }),
+    new sassLintPlugin({
+      configFile: '.sass-lint.yml',
+      glob: 'src/**/*.s?(a|c)ss',
+      quiet: false,
+      ignorePlugins: [
+         'extract-text-webpack-plugin',
+          'html-webpack-plugin' 
+      ],
+      failOnWarning: false,
+      failOnError: true,
+      testing: false
+    }),
   ]
 };
