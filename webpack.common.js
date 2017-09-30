@@ -1,3 +1,4 @@
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const sassLintPlugin = require('sasslint-webpack-plugin');
@@ -54,6 +55,11 @@ module.exports = {
     ]
   },
   plugins: [
+    new CopyWebpackPlugin([
+      { from: 'src/bootstrap-3.3.7.min.css',
+        to: 'bootstrap-3.3.7.min.css'
+      },
+    ]),
     new ExtractTextPlugin("app.css"),
     new HtmlWebpackPlugin({
       template: './src/index.html',
