@@ -31,3 +31,5 @@ rules:
     - error
   no-unused-vars:
     - off
+  no-debugger:
+    - off

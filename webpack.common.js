@@ -4,6 +4,8 @@ const sassLintPlugin = require('sasslint-webpack-plugin');
 
 var path = require('path');
 
+console.log("Running webpack build: " + JSON.stringify(process.env.NODE_ENV));
+
 module.exports = {
   entry: "./src/entry.js",
   output: {
