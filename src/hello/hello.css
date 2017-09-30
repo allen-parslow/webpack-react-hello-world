@@ -1,6 +1,7 @@
 .hello {
-background: #E0DEDE;
-padding: 10px;
-font-weight: bold;
-border: 2px solid #000000;
+    background: #E0DEDE;
+    padding: 10px;
+    font-weight: bold;
+    border: 2px solid #000000;
+    display: flex;
 }
