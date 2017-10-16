@@ -1,25 +1,12 @@
 {
   "name": "webpack-react-hello-world",
-  "jest": {
-    "unmockedModulePathPatterns": [
-      "<rootDir>/node_modules/react/",
-      "<rootDir>/node_modules/enzyme/"
-    ],
-    "moduleNameMapper": {
-      "\\.(css|scss)$": "<rootDir>/scripts/mockStyle.js"
-    },
-    "roots": [
-      "<rootDir>/src/"
-    ],
-    "setupTestFrameworkScriptFile": "<rootDir>/scripts/test-setup.js"
-  },
   "version": "1.0.0",
   "description": "Hello Word for Webpack + React (with Docker)",
-  "scripts": {
-    "start": "NODE_ENV=development webpack-dev-server --open --config webpack.dev.js",
-    "build": "NODE_ENV=production webpack --config webpack.prod.js",
-    "clean": "[ -d 'dist/' ] && rm -r dist/ || :",
-    "test": "jest"
+  "author": "Allen Parslow",
+  "license": "MIT",
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/allen-parslow/webpack-hello-world"
   },
   "keywords": [
     "webpack",
@@ -28,8 +15,14 @@
     "docker",
     "react"
   ],
-  "author": "Allen Parslow",
-  "license": "MIT",
+  "scripts": {
+    "start": "NODE_ENV=development webpack-dev-server --open --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
+    "clean": "[ -d 'build/' ] && rm -r build/ || :",
+    "test": "jest",
+    "publish-aws": "./aws/codedeploy-publish.sh allen-parslow-code",
+    "create-aws": "./aws/create-env.sh"
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
@@ -66,5 +59,18 @@
   "dependencies": {
     "react": "^15.6.2",
     "react-dom": "^15.6.2"
+  },
+  "jest": {
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react/",
+      "<rootDir>/node_modules/enzyme/"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "<rootDir>/scripts/mockStyle.js"
+    },
+    "roots": [
+      "<rootDir>/src/"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/scripts/test-setup.js"
   }
 }
