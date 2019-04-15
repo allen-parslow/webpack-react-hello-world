@@ -60,7 +60,7 @@ Resources:
       UserData:
         Fn::Base64: !Sub |
           #!/bin/bash -x
-          # TODO use region variable 
+          # TODO use region variable
           echo 'start deploytarget_recipe---------------------------'
           yum update -y
           yum install -y ruby
@@ -70,7 +70,7 @@ Resources:
           pip --version
           aws --version
           mkdir -p /tmp/aws-ec2-setup/ || true
-          cd /tmp/aws-ec2-setup/		  
+          cd /tmp/aws-ec2-setup/
           wget https://aws-codedeploy-us-east-1.s3.amazonaws.com/latest/install
           chmod +x ./install
           ./install auto
@@ -87,7 +87,7 @@ Resources:
           python awslogs-agent-setup.py -n -r us-east-1 -c s3://aws-codedeploy-us-east-1/cloudwatch/awslogs.conf
           service awslogs restart
           cd /tmp/aws-ec2-setup/
-          yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm	
+          yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
           start amazon-ssm-agent
           ls -lh /tmp/aws-ec2-setup/
           echo 'end deploytarget_recipe---------------------------'
